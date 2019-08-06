@@ -40,19 +40,32 @@ const Pagination = ({ postPerPage, totalPosts, paginate }) => {
             <i className='material-icons'>chevron_left</i>
           </a>
         </li>
-        {pageNumbers.map(number => (
-          <li key={number} className={currentPage === number ? 'active' : ''}>
+        {lastPage <= 10 ? (
+          pageNumbers.map(number => (
+            <li key={number} className={currentPage === number ? 'active' : ''}>
+              <a
+                href='#!'
+                onClick={() => {
+                  paginate(number);
+                  setCurrentPage(number);
+                }}
+              >
+                {number}
+              </a>
+            </li>
+          ))
+        ) : (
+          <li key={currentPage} className='active'>
             <a
               href='#!'
               onClick={() => {
-                paginate(number);
-                setCurrentPage(number);
+                paginate(currentPage);
               }}
             >
-              {number}
+              {currentPage} of {lastPage}
             </a>
           </li>
-        ))}
+        )}
         <li className='waves-effect'>
           <a
             href='#!'

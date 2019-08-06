@@ -2,6 +2,6 @@
 
 Pagination using React hooks and axios
 
-Simple Branch will display all the pages as well as the previous, next, first and last page. When page turns to current page, the color will change to red.
+Simple Current Branch will only display the current page as well as the previous, next, first and last page. When page turns to current page, the color will change to red.
 
-Suitable for less pages in pagination application.
+Suitable for many pages in pagination application but still a simple model.
