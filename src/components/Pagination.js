@@ -4,13 +4,31 @@ const Pagination = ({ postPerPage, totalPosts, paginate }) => {
   const [currentPage, setCurrentPage] = useState(1);
   console.log('currentPage: ', currentPage);
 
-  const pageNumbers = [];
   const lastPage = Math.ceil(totalPosts / postPerPage);
 
-  for (let i = 1; i <= lastPage; i++) {
-    pageNumbers.push(i);
+  let startPage, endPage;
+  if (lastPage <= 8) {
+    //Less than 8 pages, show all
+    startPage = 1;
+    endPage = lastPage;
+  } else {
+    //More than 8 pages, calculate start and end pages
+    if (currentPage <= 5) {
+      startPage = 1;
+      endPage = 8;
+    } else if (currentPage + 2 >= lastPage) {
+      startPage = lastPage - 7;
+      endPage = lastPage;
+    } else {
+      startPage = currentPage - 4;
+      endPage = currentPage + 3;
+    }
   }
 
+  //Create an array of pages shown
+  let pages = [...Array(endPage + 1 - startPage).keys()].map(
+    i => startPage + i
+  );
   return (
     <div>
       <ul className='pagination'>
@@ -40,16 +58,16 @@ const Pagination = ({ postPerPage, totalPosts, paginate }) => {
             <i className='material-icons'>chevron_left</i>
           </a>
         </li>
-        {pageNumbers.map(number => (
-          <li key={number} className={currentPage === number ? 'active' : ''}>
+        {pages.map((page, index) => (
+          <li key={index} className={currentPage === page ? 'active' : ''}>
             <a
               href='#!'
               onClick={() => {
-                paginate(number);
-                setCurrentPage(number);
+                paginate(page);
+                setCurrentPage(page);
               }}
             >
-              {number}
+              {page}
             </a>
           </li>
         ))}
