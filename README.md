@@ -12,3 +12,5 @@ Simple_Current_Branch
 Google_Branch
 
 ![Google_Branch](https://user-images.githubusercontent.com/42852717/62659920-90729b00-b921-11e9-9598-202e37e662fd.PNG)
+
+Infinite_Scroll_Branch
