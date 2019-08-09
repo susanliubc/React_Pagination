@@ -9,6 +9,7 @@ const App = () => {
   const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [postPerPage] = useState(10);
+  console.log('width: ', window.innderWidth);
 
   useEffect(() => {
     const fetchPosts = async () => {
@@ -33,12 +34,19 @@ const App = () => {
   return (
     <div className='container'>
       <h1 className='teal-text text-darken-3 center'>My Blog</h1>
-      <Posts posts={currentPosts} loading={loading} />
-      <Pagination
-        postPerPage={postPerPage}
-        totalPosts={posts.length}
-        paginate={paginate}
+      <Posts
+        posts={window.innerWidth > 767 ? currentPosts : posts}
+        loading={loading}
       />
+      {window.innerWidth > 767 ? (
+        <Pagination
+          postPerPage={postPerPage}
+          totalPosts={posts.length}
+          paginate={paginate}
+        />
+      ) : (
+        ''
+      )}
     </div>
   );
 };
