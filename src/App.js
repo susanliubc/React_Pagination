@@ -9,7 +9,7 @@ const App = () => {
   const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [postPerPage] = useState(10);
-  console.log('width: ', window.innderWidth);
+  console.log('width: ', window.innerWidth);
 
   useEffect(() => {
     const fetchPosts = async () => {
@@ -28,6 +28,7 @@ const App = () => {
   const indexOfLastPost = currentPage * postPerPage;
   const indexOfFirstPost = indexOfLastPost - postPerPage;
   const currentPosts = posts.slice(indexOfFirstPost, indexOfLastPost);
+  console.log(currentPosts);
 
   //Change page
   const paginate = pageNumber => setCurrentPage(pageNumber);
@@ -37,6 +38,7 @@ const App = () => {
       <Posts
         posts={window.innerWidth > 767 ? currentPosts : posts}
         loading={loading}
+        width={window.innerWidth}
       />
       {window.innerWidth > 767 ? (
         <Pagination
