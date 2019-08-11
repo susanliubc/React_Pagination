@@ -14,3 +14,5 @@ Google_Branch
 ![Google_Branch](https://user-images.githubusercontent.com/42852717/62659920-90729b00-b921-11e9-9598-202e37e662fd.PNG)
 
 Infinite_Scroll_Branch
+
+![Infinite_Scroll_Branch_Resize](https://user-images.githubusercontent.com/42852717/62828973-db9ddf80-bba7-11e9-87d1-9a91f0a0c533.PNG)
