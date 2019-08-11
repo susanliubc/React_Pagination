@@ -4,9 +4,6 @@ import axios from 'axios';
 
 const Posts = ({ posts, loading, width }) => {
   const [currentPosts, setCurrentPosts] = useState([]);
-  console.log('currentPosts: ', currentPosts);
-  console.log('posts: ', posts);
-  console.log('width: ', width);
 
   useEffect(() => {
     setCurrentPosts(posts);
@@ -25,7 +22,6 @@ const Posts = ({ posts, loading, width }) => {
   };
 
   const [fetching, setFetching] = useInfiniteScroll(fetchMorePosts);
-  console.log('Pre fetching: ', fetching);
 
   if (loading) return <h2>Loading...</h2>;
   return (
