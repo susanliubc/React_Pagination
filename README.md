@@ -1,5 +1,5 @@
-# React_Pagination
-Pagination using React hooks and axios
+# React_Pagination_Infinite_Scrolling
+Pagination and infinite scrolling using React hooks and axios
 
 Simple_Branch
 
